@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.remote.webdriver import WebDriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class BasePage:
@@ -21,3 +22,6 @@ class BasePage:
         return self.driver.find_element(by, location)
     def finds(self,by,location):
         return self.driver.find_elements(by,location)
+    #显示等待 WebDriverWait
+    def wait(self,fun):
+        WebDriverWait(self.driver,10).until(fun)
